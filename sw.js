@@ -24,9 +24,11 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	console.log("fetch"+e.request.url);
+	
   e.respondWith((async () => {
   	let ressource = e.request.url;
+  	var filename = ressource.substring(url.lastIndexOf('/')+1);
+  	console.log("fetch : "+filename);
   	if(appShellFiles.includes(ressource)){
   		console.log("priorizeCache");
   		return priorizeCache(e);

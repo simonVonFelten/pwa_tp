@@ -2,7 +2,6 @@
 
 const cacheName = 'version1';
 const appShellFiles = [
-  "./icons",
   "./icons/icon-512.png",
   "./icons/icon-256.png",
   "./icons/icon-192.png",

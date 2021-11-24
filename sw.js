@@ -35,7 +35,7 @@ self.addEventListener('fetch', (e) => {
   })());
 });
 
-function priorizeCache(e) {
+async function priorizeCache(e){
 	const r = await caches.match(e.request);
     console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
     if (r) { return r; }
@@ -46,7 +46,7 @@ function priorizeCache(e) {
     return response;
 }
 
-function priorizeWeb(e) {
+async function priorizeWeb(e){
 	
     const response = await fetch(e.request);
     const cache = await caches.open(cacheName);

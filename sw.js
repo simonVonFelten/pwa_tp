@@ -27,7 +27,7 @@ self.addEventListener('fetch', (e) => {
 	
   e.respondWith((async () => {
   	let ressource = e.request.url;
-  	var filename = ressource.substring(url.lastIndexOf('/')+1);
+  	var filename = ressource.substring(ressource.lastIndexOf('/')+1);
   	console.log("fetch : "+filename);
   	if(appShellFiles.includes(ressource)){
   		console.log("priorizeCache");

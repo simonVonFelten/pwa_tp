@@ -24,7 +24,7 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	console.log("fetch");
+	console.log("fetch"+e.request.url);
   e.respondWith((async () => {
   	let ressource = e.request.url;
   	if(appShellFiles.includes(ressource)){

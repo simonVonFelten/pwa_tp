@@ -27,8 +27,10 @@ self.addEventListener('fetch', (e) => {
   e.respondWith((async () => {
   	let ressource = e.request.url;
   	if(appShellFiles.includes(ressource)){
+  		console.log("priorizeCache");
   		return priorizeCache(e);
   	}else{
+  		console.log("priorizeWeb");
   		return priorizeWeb(e);
   	}
     

@@ -10,7 +10,8 @@ const appShellFiles = [
   "index.html",
   "manifest.json",
   "style.css",
-  "sw.js"
+  "sw.js",
+  "icons/favicon.ico"
 ];
 
 

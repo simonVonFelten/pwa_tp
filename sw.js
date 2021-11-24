@@ -2,15 +2,15 @@
 
 const cacheName = 'version1';
 const appShellFiles = [
-  "./icons/icon-512.png",
-  "./icons/icon-256.png",
-  "./icons/icon-192.png",
-  "./icons/maskable_icon.png",
-  "./app.js",
-  "./index.html",
-  "./manifest.json",
-  "./style.css",
-  "./sw.js"
+  "icons/icon-512.png",
+  "icons/icon-256.png",
+  "icons/icon-192.png",
+  "icons/maskable_icon.png",
+  "app.js",
+  "index.html",
+  "manifest.json",
+  "style.css",
+  "sw.js"
 ];
 
 
@@ -27,9 +27,8 @@ self.addEventListener('fetch', (e) => {
 	
   e.respondWith((async () => {
   	let ressource = e.request.url;
-  	var filename = ressource.substring(ressource.lastIndexOf('/')+1);
-  	console.log("fetch : "+filename);
-  	if(appShellFiles.includes(ressource)){
+  	console.log("fetch : "+ressource);
+  	if(appShellFiles.some(file => e.request.url.endsWith(file))){
   		console.log("priorizeCache");
   		return priorizeCache(e);
   	}else{

@@ -3,22 +3,22 @@
   "name": "Application de lignes Ginko",
   "icons": [
     {
-      "src": "/icons/icon-512.png",
+      "src": "./icons/icon-512.png",
       "type": "image/svg+xml",
       "sizes": "512x512"
     },
     {
-      "src": "/icons/icon-256.png",
+      "src": "./icons/icon-256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "/icons/icon-192.png",
+      "src": "./icons/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icons/maskable_icon.png",
+      "src": "./icons/maskable_icon.png",
       "type": "image/png",
       "sizes": "274x274",
       "purpose": "maskable"
@@ -27,7 +27,6 @@
   "start_url": "index.html",
   "background_color": "#3367D6",
   "display": "fullscreen",
-  "scope": "/",
   "theme_color": "#000000",
   "theme_color": "#000000"
   

@@ -25,7 +25,18 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith((async () => {
-    const r = await caches.match(e.request);
+  	let ressource = e.request.url;
+  	if(appShellFiles.includes(ressource)){
+  		return priorizeCache(e);
+  	}else{
+  		return priorizeWeb(e);
+  	}
+    
+  })());
+});
+
+function priorizeCache(e) {
+	const r = await caches.match(e.request);
     console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
     if (r) { return r; }
     const response = await fetch(e.request);
@@ -33,8 +44,26 @@ self.addEventListener('fetch', (e) => {
     console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
     cache.put(e.request, response.clone());
     return response;
-  })());
-});
+}
+
+function priorizeWeb(e) {
+	
+    const response = await fetch(e.request);
+    const cache = await caches.open(cacheName);
+    console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+    cache.put(e.request, response.clone());
+    if(response.ok){
+    	return response;
+    }
+
+    const r = await caches.match(e.request);
+    console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+    if (r) { 
+    	return r;
+    }
+    return response;
+
+}
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((keyList) => {

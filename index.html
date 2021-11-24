@@ -8,6 +8,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="manifest" href="./manifest.json">
     <meta name="author" content="Fred Dadeau">
+
+    <script type="text/javascript">
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        };
+    </script>
         
     <!-- https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/ -->
     <meta name="theme-color" content="#000000">

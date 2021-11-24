@@ -7,6 +7,7 @@
  ************************************************************************/
 document.addEventListener("DOMContentLoaded", function (_e) {
 
+
     
     /******************************************************************
             Fonctions à compléter dans la dernière partie du TP 
